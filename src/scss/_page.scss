@@ -1,0 +1,579 @@
+.wb-slider{
+  height: 563px;
+  width: 100vw;
+  position: relative;
+
+  @include breakpoint(mobile) {
+    height: auto;
+  }
+
+  .wb-slider-content, .slick-list, .slick-track{
+    height: 100%;
+    width: 100%;
+  }
+
+  .wb-slider-content{
+    position: relative;
+    @include breakpoint(mobile) {
+      height: 39vw;
+    }
+
+    .slick-arrow{
+      font-size: 0;
+      position: absolute;
+      z-index: 5;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &.slick-prev{
+        left: 40px;
+      }
+
+      &.slick-next{
+        right: 40px;
+      }
+
+      i{
+        font-size: 30px;
+        color: white;
+      }
+    }
+
+    .slick-dots{
+      position: absolute;
+      z-index: 5;
+      bottom: 10px;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+
+
+      li{
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+
+        button{
+          font-size: 0;
+          line-height: 0;
+          display: block;
+          width: 20px;
+          height: 20px;
+          padding: 5px;
+          cursor: pointer;
+          color: transparent;
+          border: 0;
+          outline: none;
+          background: transparent;
+
+          &:before{
+            font-family: 'slick';
+            font-size: 20px;
+            line-height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            content: '•';
+            text-align: center;
+            opacity: 1;
+            color: white;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+        }
+
+        &.slick-active button:before {
+          opacity: 1;
+          color: $pink;
+        }
+      }
+    }
+  }
+
+  .wb-slide{
+    width: calc(35% / 2);
+    max-width: 842px;
+    height: 100%;
+    position: relative;
+
+    &.slick-center{
+      width: 65%;
+
+      .wb-filter{
+        background-color: transparent;
+
+        @include breakpoint(mobile) {
+          background-color: rgba(0,0,0,0.4);
+        }
+      }
+    }
+
+    .wb-filter{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 4;
+    }
+
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .wb-score-content{
+    position: absolute;
+    left: 91px;
+    top: 71px;
+    width: 250px;
+    text-align: center;
+
+    @include breakpoint(mobile) {
+      position: relative;
+      left: auto;
+      top: auto;
+      width: 100%;
+    }
+
+    .wb-score-details{
+      background-color: white;
+      padding: 30px;
+      margin-bottom: 1px;
+
+      .wb-favorite{
+        background-color: black;
+        color: white;
+        font-size: 12px;
+        text-transform: uppercase;
+        padding: 11px;
+        border-radius: 5px;
+        margin-bottom: 25px;
+        display: inline-block;
+
+        i{
+          color: $pink;
+        }
+      }
+
+      .wb-name{
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+
+      .wb-score-mark{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        i{
+          font-size: 10px;
+          color: $pink;
+
+          &.fas-grey{
+            color: #bcbcbc;
+          }
+        }
+
+        .wb-mark{
+          font-weight: 700;
+          font-size: 12px;
+
+          span{
+            color: #999999;
+          }
+        }
+      }
+    }
+
+    .wb-comments{
+      background-color: white;
+      padding: 30px;
+      position: relative;
+      @include breakpoint(mobile) {
+        width: 250px;
+        margin: 0 auto;
+      }
+
+      .wb-comment{
+        font-size: 14px;
+        width: 190px;
+        margin-bottom: 40px;
+
+
+        .wb-quote{
+          margin-bottom: 15px;
+          font-size: 14px;
+
+          &:before{
+            content: "<<";
+            font-size: 10px;
+          }
+
+          &:after{
+            content: ">>";
+            font-size: 10px;
+          }
+        }
+      }
+
+      .slick-slider{
+        position: initial;
+      }
+
+      .slick-arrow{
+        font-size: 0;
+        position: absolute;
+        z-index: 5;
+        bottom: 10px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $light-grey;
+        border-radius: 5px;
+
+        &.slick-prev{
+          left: 10px;
+        }
+
+        &.slick-next{
+          right: 10px;
+        }
+
+        i{
+          font-size: 25px;
+          color: black;
+        }
+      }
+    }
+
+    .wb-more{
+      margin-bottom: 0;
+      position: absolute;
+      z-index: 5;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+  }
+}
+
+
+.wb-place{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 30px;
+
+  @include breakpoint(tablet) {
+    flex-wrap: wrap;
+  }
+
+  .wb-place-details{
+    max-width: 550px;
+    width: 45%;
+
+    @include breakpoint(tablet) {
+      width: 100%;
+    }
+  }
+
+  .wb-page-title{
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 44px;
+    margin-top: 0;
+
+    @include breakpoint(mobile) {
+      font-size: 25px;
+    }
+  }
+
+  .wb-place-desc{
+    font-size: 14px;
+    margin-bottom: 37px;
+  }
+
+  .wb-place-actions{
+    display: flex;
+
+    .wb-action button{
+      font-size: 0;
+      margin-right: 5px;
+      width: 65px;
+      height: 65px;
+      border: 1px solid $light-grey;
+      border-radius: 5px;
+      color: $dark-grey;
+
+      i{
+        font-size: 14px;
+      }
+    }
+  }
+
+  .wb-map{
+    border: 1px solid $light-grey;
+    position: relative;
+    height: 335px;
+
+    @include breakpoint(tablet) {
+      margin-top: 30px;
+    }
+    
+    @include breakpoint(mobile) {
+      width: 100%;
+      margin-top: 30px;
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .wb-map-title{
+      width: 100%;
+      height: 65px;
+      background-color: white;
+      margin-top: -20px;
+      z-index: 5;
+      line-height: 65px;
+      padding: 0 30px;
+      border-top: 1px solid $light-grey;
+      position: absolute;
+      bottom: 0;
+
+      @include breakpoint(mobile) {
+        line-height: 20px;
+        height: auto;
+        padding: 20px;
+      }
+
+      i{
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.wb-experiences{
+  &-title{
+    padding: 62px 0 40px 48px;
+    font-size: 35px;
+    margin-top: 0;
+    margin-bottom: 34px;
+    background: url(../images/img-etoiles.png) no-repeat;
+    background-size: auto 119px;
+    background-position: right center;
+    border-bottom: 1px solid $light-grey;
+
+    @include breakpoint(tablet) {
+      font-size: 30px;
+      padding-right: 70px;
+      padding-left: 35px;
+      margin-bottom: 0;
+    }
+
+    @include breakpoint(mobile) {
+      font-size: 20px;
+      background: none;
+      padding: 20px;
+    }
+  }
+
+  .wb-experience{
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $light-grey;
+
+    @include breakpoint(tablet) {
+      flex-wrap: wrap;
+      padding: 20px 0;
+    }
+
+    &-content{
+      display: flex;
+      justify-content: space-between;
+
+      @include breakpoint(mobile) {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+    }
+
+    &-details{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .wb-experience-main{
+        display: flex;
+        align-items: center;
+        margin-bottom: 22px;
+
+        @include breakpoint(mobile) {
+          flex-wrap: wrap;
+        }
+
+        .wb-experience-title{
+          font-size: 17px;
+          font-weight: 700;
+          padding-right: 8px;
+          border-right: 1px solid $middle-grey;
+          margin-right: 25px;
+
+          @include breakpoint(mobile) {
+            margin-bottom: 10px;
+            border-right: none;
+          }
+        }
+
+        .wb-experience-quantity{
+          font-size: 13px;
+          font-weight: 700;
+          i{
+            color: $pink;
+            &:last-child{
+              margin-right: 15px;
+            }
+          }
+        }
+      }
+
+      .wb-experience-desc{
+        padding-left: 15px;
+
+        @include breakpoint(mobile) {
+          margin-bottom: 10px;
+        }
+      }
+
+      .wb-desc-item{
+        color: $middle-grey;
+        list-style: initial;
+        font-size: 14px;
+      }
+
+      .wb-more{
+        margin-bottom: 0;
+      }
+    }
+
+    &-image{
+      margin-right: 47px;
+      @include breakpoint(mobile) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+
+    &-add{
+      width: 400px;
+      padding: 0 50px;
+      text-align: center;
+
+      @include breakpoint(tablet) {
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      @include breakpoint(mobile) {
+        padding: 0;
+      }
+
+      .wb-add-title{
+        font-size: 14px;
+
+        strong{
+          font-size: 18px;
+        }
+      }
+
+      .wb-price{
+        color: $pink;
+        font-size: 18px;
+        font-weight: 700;
+        margin: 10px 0;
+        display: inline-block;
+      }
+
+      .wb-add{
+        background-color: $pink;
+        color: white;
+        display: inline-block;
+        width: 100%;
+        line-height: 50px;
+        height: 50px;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.wb-service-list{
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include breakpoint(tablet) {
+    padding: 10px;
+  }
+
+  @include breakpoint(mobile) {
+    flex-wrap: wrap;
+  }
+
+  .wb-service{
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(mobile) {
+      margin-bottom: 10px;
+    }
+  }
+
+  i{
+    background-color: #f5f5f5;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 26px;
+    color: $pink;
+    margin-right: 18px;
+
+    &.wb-icon{
+      background-image: url(../images/icon-wb.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: inline-block;
+    }
+  }
+
+  span{
+    display: inline-block;
+    max-width: 170px;
+    font-size: 12px;
+    color: #515151;
+  }
+}
